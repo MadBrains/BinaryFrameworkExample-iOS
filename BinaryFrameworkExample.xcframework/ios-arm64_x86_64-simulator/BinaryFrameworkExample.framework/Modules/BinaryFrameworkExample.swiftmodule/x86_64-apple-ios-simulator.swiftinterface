@@ -7,7 +7,7 @@ import Foundation
 import RealmSwift
 import Swift
 import _Concurrency
-public var CarSDK: BinaryFrameworkExample.CarSDKCore
+public let CarSDK: BinaryFrameworkExample.CarSDKCore
 @_hasMissingDesignatedInitializers public class CarSDKCore {
   public func getAvailableCars(completion: @escaping (([BinaryFrameworkExample.DomainCar]) -> Swift.Void))
   public func getSavedCars(completion: @escaping (([BinaryFrameworkExample.DomainCar]) -> Swift.Void))
