@@ -1,7 +1,7 @@
 xcodebuild archive \
   -workspace BinaryFrameworkExample.xcworkspace \
   -scheme BinaryFrameworkExample \
-  -configuration Release \
+  -configuration Debug \
   -sdk iphoneos \
   -archivePath "archives/ios_devices.xcarchive" \
   BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
@@ -10,7 +10,7 @@ xcodebuild archive \
 xcodebuild archive \
   -workspace BinaryFrameworkExample.xcworkspace \
   -scheme BinaryFrameworkExample \
-  -configuration Release \
+  -configuration Debug \
   -sdk iphonesimulator \
   -archivePath "archives/ios_simulators.xcarchive" \
   BUILD_LIBRARY_FOR_DISTRIBUTION=YES \

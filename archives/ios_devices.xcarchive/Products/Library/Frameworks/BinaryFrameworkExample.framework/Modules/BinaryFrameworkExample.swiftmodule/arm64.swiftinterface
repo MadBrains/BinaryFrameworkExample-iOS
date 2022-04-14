@@ -1,13 +1,13 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
-// swift-module-flags: -target arm64-apple-ios12.1 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BinaryFrameworkExample
+// swift-module-flags: -target arm64-apple-ios12.1 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name BinaryFrameworkExample
 import Alamofire
 @_exported import BinaryFrameworkExample
 import Foundation
 import RealmSwift
 import Swift
 import _Concurrency
-public let CarSDK: BinaryFrameworkExample.CarSDKCore
+public var CarSDK: BinaryFrameworkExample.CarSDKCore
 @_hasMissingDesignatedInitializers public class CarSDKCore {
   public func getAvailableCars(completion: @escaping (([BinaryFrameworkExample.DomainCar]) -> Swift.Void))
   public func getSavedCars(completion: @escaping (([BinaryFrameworkExample.DomainCar]) -> Swift.Void))

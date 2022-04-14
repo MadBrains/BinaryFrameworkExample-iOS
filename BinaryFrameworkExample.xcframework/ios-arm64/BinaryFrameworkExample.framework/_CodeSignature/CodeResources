@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/BinaryFrameworkExample.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		72VNWfOb5+1fkcL2ZpoXrtgmp8g=
+		oBABv+1P3aEdMKf4cXukwc2DzdQ=
 		</data>
 		<key>Modules/BinaryFrameworkExample.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		+w6p8hoZsYvOcc+82ObYEbrr7pc=
+		+UgKp5TAhd9561NkVPHQ9dAWxqU=
 		</data>
 		<key>Modules/BinaryFrameworkExample.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/BinaryFrameworkExample.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		72VNWfOb5+1fkcL2ZpoXrtgmp8g=
+		oBABv+1P3aEdMKf4cXukwc2DzdQ=
 		</data>
 		<key>Modules/BinaryFrameworkExample.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		+w6p8hoZsYvOcc+82ObYEbrr7pc=
+		+UgKp5TAhd9561NkVPHQ9dAWxqU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -72,14 +72,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			URvI5F4lkUOm3j9eSWQk9WX96kMcoSAVn53Z5DYi+ZU=
+			2dsCZIemcyQ1LTcjCYf+jgWBcQYZ8PXM94xH0OWyj58=
 			</data>
 		</dict>
 		<key>Modules/BinaryFrameworkExample.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cO5GRdXd0msEO8Z3eJcCaJ7aekAvwUlI3+vOdKgvY3U=
+			jbeRb1lX6HBlCHybiN9U/14EysGuwcLkEb6Edb1dadQ=
 			</data>
 		</dict>
 		<key>Modules/BinaryFrameworkExample.swiftmodule/arm64.swiftdoc</key>
@@ -93,14 +93,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			URvI5F4lkUOm3j9eSWQk9WX96kMcoSAVn53Z5DYi+ZU=
+			2dsCZIemcyQ1LTcjCYf+jgWBcQYZ8PXM94xH0OWyj58=
 			</data>
 		</dict>
 		<key>Modules/BinaryFrameworkExample.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cO5GRdXd0msEO8Z3eJcCaJ7aekAvwUlI3+vOdKgvY3U=
+			jbeRb1lX6HBlCHybiN9U/14EysGuwcLkEb6Edb1dadQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

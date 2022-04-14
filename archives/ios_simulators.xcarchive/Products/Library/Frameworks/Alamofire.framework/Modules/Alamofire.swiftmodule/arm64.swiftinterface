@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
-// swift-module-flags: -target arm64-apple-ios12.1-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Alamofire
+// swift-module-flags: -target arm64-apple-ios12.1-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Alamofire
 @_exported import Alamofire
 import Combine
 import Dispatch
@@ -195,7 +195,7 @@ extension Alamofire.AFError : Foundation.LocalizedError {
     get
   }
 }
-public let AF: Alamofire.Session
+public var AF: Alamofire.Session
 public struct AlamofireExtension<ExtendedType> {
   public var type: ExtendedType {
     get
@@ -210,11 +210,11 @@ public protocol AlamofireExtended {
 extension Alamofire.AlamofireExtended {
   public static var af: Alamofire.AlamofireExtension<Self>.Type {
     get
-    set
+    set(newValue)
   }
   public var af: Alamofire.AlamofireExtension<Self> {
     get
-    set
+    set(newValue)
   }
 }
 public protocol AuthenticationCredential {
@@ -245,7 +245,7 @@ public class AuthenticationInterceptor<AuthenticatorType> : Alamofire.RequestInt
   }
   public var credential: Alamofire.AuthenticationInterceptor<AuthenticatorType>.Credential? {
     get
-    set
+    set(newValue)
   }
   public init(authenticator: AuthenticatorType, credential: Alamofire.AuthenticationInterceptor<AuthenticatorType>.Credential? = nil, refreshWindow: Alamofire.AuthenticationInterceptor<AuthenticatorType>.RefreshWindow? = RefreshWindow())
   public func adapt(_ urlRequest: Foundation.URLRequest, for session: Alamofire.Session, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
@@ -261,8 +261,8 @@ public struct ResponseCacher {
     case doNotCache
     case modify((Foundation.URLSessionDataTask, Foundation.CachedURLResponse) -> Foundation.CachedURLResponse?)
   }
-  public static let cache: Alamofire.ResponseCacher
-  public static let doNotCache: Alamofire.ResponseCacher
+  public static var cache: Alamofire.ResponseCacher
+  public static var doNotCache: Alamofire.ResponseCacher
   public let behavior: Alamofire.ResponseCacher.Behavior
   public init(behavior: Alamofire.ResponseCacher.Behavior)
 }
@@ -757,7 +757,7 @@ public struct HTTPHeaders {
   public func value(for name: Swift.String) -> Swift.String?
   public subscript(name: Swift.String) -> Swift.String? {
     get
-    set
+    set(newValue)
   }
   public var dictionary: [Swift.String : Swift.String] {
     get
@@ -825,17 +825,17 @@ extension Alamofire.HTTPHeader {
   public static func userAgent(_ value: Swift.String) -> Alamofire.HTTPHeader
 }
 extension Alamofire.HTTPHeaders {
-  public static let `default`: Alamofire.HTTPHeaders
+  public static var `default`: Alamofire.HTTPHeaders
 }
 extension Alamofire.HTTPHeader {
-  public static let defaultAcceptEncoding: Alamofire.HTTPHeader
-  public static let defaultAcceptLanguage: Alamofire.HTTPHeader
-  public static let defaultUserAgent: Alamofire.HTTPHeader
+  public static var defaultAcceptEncoding: Alamofire.HTTPHeader
+  public static var defaultAcceptLanguage: Alamofire.HTTPHeader
+  public static var defaultUserAgent: Alamofire.HTTPHeader
 }
 extension Foundation.URLRequest {
   public var headers: Alamofire.HTTPHeaders {
     get
-    set
+    set(newValue)
   }
 }
 extension Foundation.HTTPURLResponse {
@@ -846,28 +846,28 @@ extension Foundation.HTTPURLResponse {
 extension Foundation.URLSessionConfiguration {
   public var headers: Alamofire.HTTPHeaders {
     get
-    set
+    set(newValue)
   }
 }
 public struct HTTPMethod : Swift.RawRepresentable, Swift.Equatable, Swift.Hashable {
-  public static let connect: Alamofire.HTTPMethod
-  public static let delete: Alamofire.HTTPMethod
-  public static let get: Alamofire.HTTPMethod
-  public static let head: Alamofire.HTTPMethod
-  public static let options: Alamofire.HTTPMethod
-  public static let patch: Alamofire.HTTPMethod
-  public static let post: Alamofire.HTTPMethod
-  public static let put: Alamofire.HTTPMethod
-  public static let trace: Alamofire.HTTPMethod
+  public static var connect: Alamofire.HTTPMethod
+  public static var delete: Alamofire.HTTPMethod
+  public static var get: Alamofire.HTTPMethod
+  public static var head: Alamofire.HTTPMethod
+  public static var options: Alamofire.HTTPMethod
+  public static var patch: Alamofire.HTTPMethod
+  public static var post: Alamofire.HTTPMethod
+  public static var put: Alamofire.HTTPMethod
+  public static var trace: Alamofire.HTTPMethod
   public let rawValue: Swift.String
   public init(rawValue: Swift.String)
   public typealias RawValue = Swift.String
 }
 open class MultipartFormData {
-  public static let encodingMemoryThreshold: Swift.UInt64
+  public static var encodingMemoryThreshold: Swift.UInt64
   open var contentType: Swift.String {
     get
-    set
+    set(value)
   }
   public var contentLength: Swift.UInt64 {
     get
@@ -899,7 +899,7 @@ open class MultipartFormData {
     }
   }
   public typealias Listener = (Alamofire.NetworkReachabilityManager.NetworkReachabilityStatus) -> Swift.Void
-  public static let `default`: Alamofire.NetworkReachabilityManager?
+  public static var `default`: Alamofire.NetworkReachabilityManager?
   open var isReachable: Swift.Bool {
     get
   }
@@ -916,8 +916,8 @@ open class MultipartFormData {
   open var status: Alamofire.NetworkReachabilityManager.NetworkReachabilityStatus {
     get
   }
-  convenience public init?(host: Swift.String)
-  convenience public init?()
+  public convenience init?(host: Swift.String)
+  public convenience init?()
   @objc deinit
   @discardableResult
   open func startListening(onQueue queue: Dispatch.DispatchQueue = .main, onUpdatePerforming listener: @escaping Alamofire.NetworkReachabilityManager.Listener) -> Swift.Bool
@@ -927,14 +927,14 @@ extension Alamofire.NetworkReachabilityManager.NetworkReachabilityStatus : Swift
   public static func == (a: Alamofire.NetworkReachabilityManager.NetworkReachabilityStatus, b: Alamofire.NetworkReachabilityManager.NetworkReachabilityStatus) -> Swift.Bool
 }
 extension Alamofire.Request {
-  public static let didResumeNotification: Foundation.Notification.Name
-  public static let didSuspendNotification: Foundation.Notification.Name
-  public static let didCancelNotification: Foundation.Notification.Name
-  public static let didFinishNotification: Foundation.Notification.Name
-  public static let didResumeTaskNotification: Foundation.Notification.Name
-  public static let didSuspendTaskNotification: Foundation.Notification.Name
-  public static let didCancelTaskNotification: Foundation.Notification.Name
-  public static let didCompleteTaskNotification: Foundation.Notification.Name
+  public static var didResumeNotification: Foundation.Notification.Name
+  public static var didSuspendNotification: Foundation.Notification.Name
+  public static var didCancelNotification: Foundation.Notification.Name
+  public static var didFinishNotification: Foundation.Notification.Name
+  public static var didResumeTaskNotification: Foundation.Notification.Name
+  public static var didSuspendTaskNotification: Foundation.Notification.Name
+  public static var didCancelTaskNotification: Foundation.Notification.Name
+  public static var didCompleteTaskNotification: Foundation.Notification.Name
 }
 extension Foundation.Notification {
   public var request: Alamofire.Request? {
@@ -1075,8 +1075,8 @@ public struct Redirector {
     case doNotFollow
     case modify((Foundation.URLSessionTask, Foundation.URLRequest, Foundation.HTTPURLResponse) -> Foundation.URLRequest?)
   }
-  public static let follow: Alamofire.Redirector
-  public static let doNotFollow: Alamofire.Redirector
+  public static var follow: Alamofire.Redirector
+  public static var doNotFollow: Alamofire.Redirector
   public let behavior: Alamofire.Redirector.Behavior
   public init(behavior: Alamofire.Redirector.Behavior)
 }
@@ -1295,8 +1295,8 @@ extension Alamofire.DataStreamRequest.Stream {
 }
 @_hasMissingDesignatedInitializers public class DownloadRequest : Alamofire.Request {
   public struct Options : Swift.OptionSet {
-    public static let createIntermediateDirectories: Alamofire.DownloadRequest.Options
-    public static let removePreviousFile: Alamofire.DownloadRequest.Options
+    public static var createIntermediateDirectories: Alamofire.DownloadRequest.Options
+    public static var removePreviousFile: Alamofire.DownloadRequest.Options
     public let rawValue: Swift.Int
     public init(rawValue: Swift.Int)
     public typealias ArrayLiteralElement = Alamofire.DownloadRequest.Options
@@ -1631,7 +1631,7 @@ public protocol EmptyResponse {
   static func emptyValue() -> Self
 }
 public struct Empty : Swift.Codable {
-  public static let value: Alamofire.Empty
+  public static var value: Alamofire.Empty
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -1712,12 +1712,12 @@ extension Alamofire.DataStreamRequest {
 }
 public typealias AFResult<Success> = Swift.Result<Success, Alamofire.AFError>
 open class RetryPolicy : Alamofire.RequestInterceptor {
-  public static let defaultRetryLimit: Swift.UInt
-  public static let defaultExponentialBackoffBase: Swift.UInt
-  public static let defaultExponentialBackoffScale: Swift.Double
-  public static let defaultRetryableHTTPMethods: Swift.Set<Alamofire.HTTPMethod>
-  public static let defaultRetryableHTTPStatusCodes: Swift.Set<Swift.Int>
-  public static let defaultRetryableURLErrorCodes: Swift.Set<Foundation.URLError.Code>
+  public static var defaultRetryLimit: Swift.UInt
+  public static var defaultExponentialBackoffBase: Swift.UInt
+  public static var defaultExponentialBackoffScale: Swift.Double
+  public static var defaultRetryableHTTPMethods: Swift.Set<Alamofire.HTTPMethod>
+  public static var defaultRetryableHTTPStatusCodes: Swift.Set<Swift.Int>
+  public static var defaultRetryableURLErrorCodes: Swift.Set<Foundation.URLError.Code>
   final public let retryLimit: Swift.UInt
   final public let exponentialBackoffBase: Swift.UInt
   final public let exponentialBackoffScale: Swift.Double
@@ -1762,12 +1762,12 @@ final public class DefaultTrustEvaluator : Alamofire.ServerTrustEvaluating {
 }
 final public class RevocationTrustEvaluator : Alamofire.ServerTrustEvaluating {
   public struct Options : Swift.OptionSet {
-    public static let crl: Alamofire.RevocationTrustEvaluator.Options
-    public static let networkAccessDisabled: Alamofire.RevocationTrustEvaluator.Options
-    public static let ocsp: Alamofire.RevocationTrustEvaluator.Options
-    public static let preferCRL: Alamofire.RevocationTrustEvaluator.Options
-    public static let requirePositiveResponse: Alamofire.RevocationTrustEvaluator.Options
-    public static let any: Alamofire.RevocationTrustEvaluator.Options
+    public static var crl: Alamofire.RevocationTrustEvaluator.Options
+    public static var networkAccessDisabled: Alamofire.RevocationTrustEvaluator.Options
+    public static var ocsp: Alamofire.RevocationTrustEvaluator.Options
+    public static var preferCRL: Alamofire.RevocationTrustEvaluator.Options
+    public static var requirePositiveResponse: Alamofire.RevocationTrustEvaluator.Options
+    public static var any: Alamofire.RevocationTrustEvaluator.Options
     public let rawValue: CoreFoundation.CFOptionFlags
     public init(rawValue: CoreFoundation.CFOptionFlags)
     public typealias ArrayLiteralElement = Alamofire.RevocationTrustEvaluator.Options
@@ -1872,7 +1872,7 @@ extension Security.SecPolicy : Alamofire.AlamofireExtended {
   public typealias ExtendedType = Security.SecPolicy
 }
 extension Alamofire.AlamofireExtension where ExtendedType == Security.SecPolicy {
-  public static let `default`: Security.SecPolicy
+  public static var `default`: Security.SecPolicy
   public static func hostname(_ hostname: Swift.String) -> Security.SecPolicy
   public static func revocation(options: Alamofire.RevocationTrustEvaluator.Options) throws -> Security.SecPolicy
 }
@@ -1912,7 +1912,7 @@ extension Alamofire.AlamofireExtension where ExtendedType == Security.SecTrustRe
   }
 }
 open class Session {
-  public static let `default`: Alamofire.Session
+  public static var `default`: Alamofire.Session
   final public let session: Foundation.URLSession
   final public let delegate: Alamofire.SessionDelegate
   final public let rootQueue: Dispatch.DispatchQueue
@@ -1926,7 +1926,7 @@ open class Session {
   final public let eventMonitor: Alamofire.CompositeEventMonitor
   final public let defaultEventMonitors: [Alamofire.EventMonitor]
   public init(session: Foundation.URLSession, delegate: Alamofire.SessionDelegate, rootQueue: Dispatch.DispatchQueue, startRequestsImmediately: Swift.Bool = true, requestQueue: Dispatch.DispatchQueue? = nil, serializationQueue: Dispatch.DispatchQueue? = nil, interceptor: Alamofire.RequestInterceptor? = nil, serverTrustManager: Alamofire.ServerTrustManager? = nil, redirectHandler: Alamofire.RedirectHandler? = nil, cachedResponseHandler: Alamofire.CachedResponseHandler? = nil, eventMonitors: [Alamofire.EventMonitor] = [])
-  convenience public init(configuration: Foundation.URLSessionConfiguration = URLSessionConfiguration.af.default, delegate: Alamofire.SessionDelegate = SessionDelegate(), rootQueue: Dispatch.DispatchQueue = DispatchQueue(label: "org.alamofire.session.rootQueue"), startRequestsImmediately: Swift.Bool = true, requestQueue: Dispatch.DispatchQueue? = nil, serializationQueue: Dispatch.DispatchQueue? = nil, interceptor: Alamofire.RequestInterceptor? = nil, serverTrustManager: Alamofire.ServerTrustManager? = nil, redirectHandler: Alamofire.RedirectHandler? = nil, cachedResponseHandler: Alamofire.CachedResponseHandler? = nil, eventMonitors: [Alamofire.EventMonitor] = [])
+  public convenience init(configuration: Foundation.URLSessionConfiguration = URLSessionConfiguration.af.default, delegate: Alamofire.SessionDelegate = SessionDelegate(), rootQueue: Dispatch.DispatchQueue = DispatchQueue(label: "org.alamofire.session.rootQueue"), startRequestsImmediately: Swift.Bool = true, requestQueue: Dispatch.DispatchQueue? = nil, serializationQueue: Dispatch.DispatchQueue? = nil, interceptor: Alamofire.RequestInterceptor? = nil, serverTrustManager: Alamofire.ServerTrustManager? = nil, redirectHandler: Alamofire.RedirectHandler? = nil, cachedResponseHandler: Alamofire.CachedResponseHandler? = nil, eventMonitors: [Alamofire.EventMonitor] = [])
   @objc deinit
   public func withAllRequests(perform action: @escaping (Swift.Set<Alamofire.Request>) -> Swift.Void)
   public func cancelAllRequests(completingOnQueue queue: Dispatch.DispatchQueue = .main, completion: (() -> Swift.Void)? = nil)
@@ -2083,12 +2083,12 @@ final public class URLEncodedFormEncoder {
   @objc deinit
 }
 extension Foundation.CharacterSet {
-  public static let afURLQueryAllowed: Foundation.CharacterSet
+  public static var afURLQueryAllowed: Foundation.CharacterSet
 }
 extension Foundation.URLRequest {
   public var method: Alamofire.HTTPMethod? {
     get
-    set
+    set(newValue)
   }
   public func validate() throws
 }
@@ -2133,23 +2133,3 @@ extension Alamofire.DownloadRequest {
   @discardableResult
   public func validate() -> Self
 }
-extension Alamofire.AuthenticationError : Swift.Equatable {}
-extension Alamofire.AuthenticationError : Swift.Hashable {}
-extension Alamofire.NetworkReachabilityManager.NetworkReachabilityStatus.ConnectionType : Swift.Equatable {}
-extension Alamofire.NetworkReachabilityManager.NetworkReachabilityStatus.ConnectionType : Swift.Hashable {}
-extension Alamofire.URLEncodedFormParameterEncoder.Destination : Swift.Equatable {}
-extension Alamofire.URLEncodedFormParameterEncoder.Destination : Swift.Hashable {}
-extension Alamofire.URLEncoding.Destination : Swift.Equatable {}
-extension Alamofire.URLEncoding.Destination : Swift.Hashable {}
-extension Alamofire.URLEncoding.ArrayEncoding : Swift.Equatable {}
-extension Alamofire.URLEncoding.ArrayEncoding : Swift.Hashable {}
-extension Alamofire.URLEncoding.BoolEncoding : Swift.Equatable {}
-extension Alamofire.URLEncoding.BoolEncoding : Swift.Hashable {}
-extension Alamofire.Request.State : Swift.Equatable {}
-extension Alamofire.Request.State : Swift.Hashable {}
-extension Alamofire.URLEncodedFormEncoder.ArrayEncoding : Swift.Equatable {}
-extension Alamofire.URLEncodedFormEncoder.ArrayEncoding : Swift.Hashable {}
-extension Alamofire.URLEncodedFormEncoder.BoolEncoding : Swift.Equatable {}
-extension Alamofire.URLEncodedFormEncoder.BoolEncoding : Swift.Hashable {}
-extension Alamofire.URLEncodedFormEncoder.SpaceEncoding : Swift.Equatable {}
-extension Alamofire.URLEncodedFormEncoder.SpaceEncoding : Swift.Hashable {}
