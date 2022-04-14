@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		50104A142806E04900EE7B51 /* BinaryFrameworkExample.h in Headers */ = {isa = PBXBuildFile; fileRef = 50104A122806E04900EE7B51 /* BinaryFrameworkExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5074F0D4280700DB00AAF073 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5074F0D3280700DB00AAF073 /* DBService.swift */; };
+		5074F0D6280700EF00AAF073 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5074F0D5280700EF00AAF073 /* APIService.swift */; };
+		5074F0D9280701C400AAF073 /* DomainCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5074F0D8280701C400AAF073 /* DomainCar.swift */; };
+		5074F0DB280701CD00AAF073 /* APICar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5074F0DA280701CD00AAF073 /* APICar.swift */; };
+		5074F0DD280701D300AAF073 /* DBCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5074F0DC280701D300AAF073 /* DBCar.swift */; };
+		5074F0DF2807024600AAF073 /* CarSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5074F0DE2807024600AAF073 /* CarSDK.swift */; };
+		5074F0F6280715AE00AAF073 /* APIRequestRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5074F0F5280715AE00AAF073 /* APIRequestRetrier.swift */; };
 		D7E328CA1CF8256BC0FFD0A6 /* Pods_BinaryFrameworkExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566A5E5D1BA8BC43305529D3 /* Pods_BinaryFrameworkExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -16,6 +23,13 @@
 		50104A0F2806E04900EE7B51 /* BinaryFrameworkExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BinaryFrameworkExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50104A122806E04900EE7B51 /* BinaryFrameworkExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryFrameworkExample.h; sourceTree = "<group>"; };
 		50104A132806E04900EE7B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5074F0D3280700DB00AAF073 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
+		5074F0D5280700EF00AAF073 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		5074F0D8280701C400AAF073 /* DomainCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainCar.swift; sourceTree = "<group>"; };
+		5074F0DA280701CD00AAF073 /* APICar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICar.swift; sourceTree = "<group>"; };
+		5074F0DC280701D300AAF073 /* DBCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBCar.swift; sourceTree = "<group>"; };
+		5074F0DE2807024600AAF073 /* CarSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSDK.swift; sourceTree = "<group>"; };
+		5074F0F5280715AE00AAF073 /* APIRequestRetrier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestRetrier.swift; sourceTree = "<group>"; };
 		566A5E5D1BA8BC43305529D3 /* Pods_BinaryFrameworkExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BinaryFrameworkExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		928FD12032E7B14029DC2073 /* Pods-BinaryFrameworkExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinaryFrameworkExample.debug.xcconfig"; path = "Target Support Files/Pods-BinaryFrameworkExample/Pods-BinaryFrameworkExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,10 +67,41 @@
 		50104A112806E04900EE7B51 /* BinaryFrameworkExample */ = {
 			isa = PBXGroup;
 			children = (
+				5074F0D7280701AD00AAF073 /* Domain */,
+				5074F0D12807001700AAF073 /* DBService */,
+				5074F0D22807001F00AAF073 /* APIService */,
 				50104A122806E04900EE7B51 /* BinaryFrameworkExample.h */,
 				50104A132806E04900EE7B51 /* Info.plist */,
 			);
 			path = BinaryFrameworkExample;
+			sourceTree = "<group>";
+		};
+		5074F0D12807001700AAF073 /* DBService */ = {
+			isa = PBXGroup;
+			children = (
+				5074F0D3280700DB00AAF073 /* DBService.swift */,
+				5074F0DC280701D300AAF073 /* DBCar.swift */,
+			);
+			path = DBService;
+			sourceTree = "<group>";
+		};
+		5074F0D22807001F00AAF073 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				5074F0F5280715AE00AAF073 /* APIRequestRetrier.swift */,
+				5074F0D5280700EF00AAF073 /* APIService.swift */,
+				5074F0DA280701CD00AAF073 /* APICar.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		5074F0D7280701AD00AAF073 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5074F0DE2807024600AAF073 /* CarSDK.swift */,
+				5074F0D8280701C400AAF073 /* DomainCar.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		8E624A0EF83C92FD55746DB5 /* Pods */ = {
@@ -65,7 +110,6 @@
 				928FD12032E7B14029DC2073 /* Pods-BinaryFrameworkExample.debug.xcconfig */,
 				11FC930DDFE573F98970752D /* Pods-BinaryFrameworkExample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -120,6 +164,7 @@
 				TargetAttributes = {
 					50104A0E2806E04900EE7B51 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -181,6 +226,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5074F0D6280700EF00AAF073 /* APIService.swift in Sources */,
+				5074F0DF2807024600AAF073 /* CarSDK.swift in Sources */,
+				5074F0D9280701C400AAF073 /* DomainCar.swift in Sources */,
+				5074F0D4280700DB00AAF073 /* DBService.swift in Sources */,
+				5074F0DD280701D300AAF073 /* DBCar.swift in Sources */,
+				5074F0DB280701CD00AAF073 /* APICar.swift in Sources */,
+				5074F0F6280715AE00AAF073 /* APIRequestRetrier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -297,7 +349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -313,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 928FD12032E7B14029DC2073 /* Pods-BinaryFrameworkExample.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UC9BH8UGNG;
@@ -321,7 +374,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BinaryFrameworkExample/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,6 +384,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -340,6 +394,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 11FC930DDFE573F98970752D /* Pods-BinaryFrameworkExample.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UC9BH8UGNG;
@@ -348,7 +403,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BinaryFrameworkExample/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
