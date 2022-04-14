@@ -1,0 +1,11 @@
+framework module BinaryFrameworkExample {
+  umbrella header "BinaryFrameworkExample.h"
+
+  export *
+  module * { export * }
+}
+
+module BinaryFrameworkExample.Swift {
+    header "BinaryFrameworkExample-Swift.h"
+    requires objc
+}

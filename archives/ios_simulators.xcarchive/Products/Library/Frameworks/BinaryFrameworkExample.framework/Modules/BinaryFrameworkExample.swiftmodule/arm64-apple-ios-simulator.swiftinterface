@@ -1,0 +1,23 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios12.1-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BinaryFrameworkExample
+import Alamofire
+@_exported import BinaryFrameworkExample
+import Foundation
+import RealmSwift
+import Swift
+import _Concurrency
+public let CarSDK: BinaryFrameworkExample.CarSDKCore
+@_hasMissingDesignatedInitializers public class CarSDKCore {
+  public func getAvailableCars(completion: @escaping (([BinaryFrameworkExample.DomainCar]) -> Swift.Void))
+  public func getSavedCars(completion: @escaping (([BinaryFrameworkExample.DomainCar]) -> Swift.Void))
+  public func saveCar(_ car: BinaryFrameworkExample.DomainCar, completion: @escaping (() -> Swift.Void))
+  public func removeCarFromSaved(_ car: BinaryFrameworkExample.DomainCar, completion: @escaping (() -> Swift.Void))
+  @objc deinit
+}
+public struct DomainCar {
+  public let id: Swift.String
+  public let brand: Swift.String
+  public let model: Swift.String
+  public let maxSpeed: Swift.Double
+}
