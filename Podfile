@@ -7,8 +7,8 @@ target 'BinaryFrameworkExample' do
   
   use_frameworks!
 
-  pod 'RealmSwift'
-  pod 'Alamofire'
+  pod 'RealmSwift', '10.25.0'
+  pod 'Alamofire', '5.5.0'
   
 end
 
